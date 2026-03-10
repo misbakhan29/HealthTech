@@ -75,18 +75,18 @@ Drink 2.5L water
 Walk 8000 steps
 Sleep before 11 PM
 
-# App tracks:
-Steps using phone sensors
-Sleep time
-AI analyzes patterns
-# App suggests:
-Evening walk if morning missed
-Meditation if stress detected
-Rahul earns points and streak badges
-# Result:
-Better sleep
-Increased activity
-Improved productivity
+App tracks:
+   Steps using phone sensors
+   Sleep time
+   AI analyzes patterns
+App suggests:
+   Evening walk if morning missed
+   Meditation if stress detected
+   Rahul earns points and streak badges
+Result:
+   Better sleep
+   Increased activity
+   Improved productivity
 
 # Why This Project is Hackathon Worthy
 1. Solves a Real Problem
