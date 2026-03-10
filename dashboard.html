@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard | Smart Health Habit Tracker</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #76b2dd, #0f506e);
+      color: #1e3a8a;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .dashboard-container {
+      background: white;
+      padding: 40px 50px;
+      border-radius: 25px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      max-width: 850px;
+      width: 90%;
+      text-align: center;
+      animation: fadeIn 0.7s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      margin-bottom: 30px;
+      color: #1e40af;
+    }
+
+    .stats {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-bottom: 35px;
+    }
+
+    .card {
+      flex: 1;
+      min-width: 220px;
+      background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      transition: transform 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card i {
+      font-size: 2rem;
+      color: #2563eb;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      font-weight: 500;
+      color: #1e3a8a;
+      margin: 5px 0;
+    }
+
+    .value {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #1d4ed8;
+    }
+
+    .btns {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 15px;
+    }
+
+    .btn {
+      padding: 10px 22px;
+      border-radius: 8px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-decoration: none;
+      color: white;
+    }
+
+    .btn-success {
+      background: #2563eb;
+    }
+
+    .btn-success:hover {
+      background: #4260bf;
+    }
+
+    .btn-outline-danger {
+      background: white;
+      color: #dc2626;
+      border: 2px solid #dc2626;
+    }
+
+    .btn-outline-danger:hover {
+      background: #dc2626;
+      color: white;
+    }
+
+    footer {
+      margin-top: 25px;
+      font-size: 0.9rem;
+      color: #475569;
+    }
+  </style>
+</head>
+<body>
+  <div class="dashboard-container">
+    <h2>Welcome to Your Dashboard 💙</h2>
+
+    <div class="stats">
+      <div class="card">
+        <i class="fas fa-list"></i>
+        <p>Total Habits</p>
+        <div class="value" id="totalHabits">0</div>
+      </div>
+
+      <div class="card">
+        <i class="fas fa-check-circle"></i>
+        <p>Completed Today</p>
+        <div class="value" id="completedToday">0</div>
+      </div>
+
+      <div class="card">
+        <i class="fas fa-chart-line"></i>
+        <p>Weekly Average (%)</p>
+        <div class="value" id="weeklyAverage">0%</div>
+      </div>
+    </div>
+
+    <div class="btns">
+      <a href="/habits" class="btn btn-success"><i class="fa-solid fa-heart"></i> Go to Habit Tracker</a>
+      <a href="/logout" class="btn btn-outline-danger"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+    </div>
+
+    <footer>🌱 Smart Health Habit Tracker | Keep growing every day</footer>
+  </div>
+
+  <script>
+    // Auto-update dashboard stats
+    fetch('/dashboard_stats')
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById('totalHabits').innerText = data.total_habits || 0;
+        document.getElementById('completedToday').innerText = data.completed_today || 0;
+        document.getElementById('weeklyAverage').innerText = data.weekly_average ? data.weekly_average + '%' : '0%';
+      })
+      .catch(err => console.error('Error loading stats:', err));
+  </script>
+</body>
+</html>
