@@ -1,4 +1,5 @@
-Smart Health Habit Tracker
+# Smart Health Habit Tracker
+
 # Objective
 The objective of the Smart Health Habit Tracker is to help users build and maintain healthy daily habits such as exercise, hydration, sleep, meditation, and nutrition through AI-driven insights, reminders, and habit analytics.
 The system tracks user behavior, analyzes patterns, and provides personalized recommendations to improve health and productivity. AI-based habit trackers can learn user behavior and suggest habits that are more achievable for the individual, improving long-term consistency.
